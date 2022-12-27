@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class EventDTO implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -18,6 +19,8 @@ public class EventDTO implements Serializable {
   private LocalDate date;
 
   private String url;
+
+  @NotNull(message = "Campo requerido")
   private Long cityId;
 
   public EventDTO() {}
