@@ -1,75 +1,83 @@
 package com.devsuperior.bds04.dto;
 
+import com.devsuperior.bds04.entities.Event;
 import java.io.Serializable;
 import java.time.LocalDate;
-
-import com.devsuperior.bds04.entities.Event;
+import javax.validation.constraints.NotBlank;
 
 public class EventDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	private Long id;
-	private String name;
-	private LocalDate date;
-	private String url;
-	private Long cityId;
-	
-	public EventDTO() {
-	}
+  private static final long serialVersionUID = 1L;
 
-	public EventDTO(Long id, String name, LocalDate date, String url, Long cityId) {
-		this.id = id;
-		this.name = name;
-		this.date = date;
-		this.url = url;
-		this.cityId = cityId;
-	}
-	
-	public EventDTO(Event entity) {
-		id = entity.getId();
-		name = entity.getName();
-		date = entity.getDate();
-		url = entity.getUrl();
-		cityId = entity.getCity().getId();
-	}
+  private Long id;
 
-	public Long getId() {
-		return id;
-	}
+  @NotBlank(message = "Campo requerido")
+  private String name;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  private LocalDate date;
+  private String url;
+  private Long cityId;
 
-	public String getName() {
-		return name;
-	}
+  public EventDTO() {}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public EventDTO(
+    Long id,
+    String name,
+    LocalDate date,
+    String url,
+    Long cityId
+  ) {
+    this.id = id;
+    this.name = name;
+    this.date = date;
+    this.url = url;
+    this.cityId = cityId;
+  }
 
-	public LocalDate getDate() {
-		return date;
-	}
+  public EventDTO(Event entity) {
+    id = entity.getId();
+    name = entity.getName();
+    date = entity.getDate();
+    url = entity.getUrl();
+    cityId = entity.getCity().getId();
+  }
 
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public String getUrl() {
-		return url;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public Long getCityId() {
-		return cityId;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public void setCityId(Long cityId) {
-		this.cityId = cityId;
-	}
+  public LocalDate getDate() {
+    return date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = date;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public Long getCityId() {
+    return cityId;
+  }
+
+  public void setCityId(Long cityId) {
+    this.cityId = cityId;
+  }
 }
